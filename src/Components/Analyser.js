@@ -20,7 +20,20 @@ const CampaignTimeline = () => {
   const [formCampaignEnd, setFormCampaignEnd] = useState("");
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: ".csv",
+    accept: {
+        "text/csv": [".csv"],
+      },
+      if (file) {
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if (fileExtension === 'csv') {
+          Papa.parse(file, {
+            header: true,
+          });
+        } else {
+          alert("Invalid file type. Please upload a .CSV file.");
+        }
+    },
+
     onDrop: (acceptedFiles) => {
       const file = acceptedFiles[0];
       Papa.parse(file, {
