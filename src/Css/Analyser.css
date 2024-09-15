@@ -41,9 +41,10 @@
     position: absolute;
     height: 65px;
     border: 2.5px dashed blue;
-    border-radius: 5px; 
+    border-radius: 3px; 
+    background-color: #4893e3d6;
     margin-top:-10px;
-    background-color: gray;
+   
     opacity: 0.4;
   }
   
